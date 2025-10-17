@@ -3,8 +3,10 @@ package ACCESO_FICHEROS_unidad1;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -22,25 +24,23 @@ import java.util.Scanner;
  *    4Borrar empleado (por el dni)
  *     5Salir */
 
-
-
 public class EJEMPLO27 {
 	static Scanner input = new Scanner(System.in);
 	static String FileName = "Empleados.bin";
 	static ObjectInputStream ois;
 	static ObjectOutputStream oos;
+
 	public static void main(String[] args) {
-		
+
 		File file = new File(FileName);
-	int answer ;
-	
-	do {
-		menu();
-		answer = input.nextInt();
-		todo(answer, file);
-	} while (answer != 5);
-	
-	
+		int answer;
+
+		do {
+			menu();
+			answer = input.nextInt();
+			todo(answer, file);
+		} while (answer != 5);
+
 	}
 
 	private static void todo(int number, File file) {
@@ -48,20 +48,19 @@ public class EJEMPLO27 {
 		case 1:
 			CreateEmployee();
 			break;
-		case 2: 
+		case 2:
 			SearchEmployee();
 			break;
 		case 3:
 			EmployeeList(file);
 			break;
-		case 4: 
+		case 4:
 			DeleteEmployee(file);
-			
 
 		default:
 			break;
 		}
-		
+
 	}
 
 	private static void DeleteEmployee(File file) {
@@ -69,17 +68,36 @@ public class EJEMPLO27 {
 	}
 
 	private static void EmployeeList(File file) {
+
 		try {
-			ois = new ObjectInputStream(new FileInputStream(FileName)) ;
+			ois = new ObjectInputStream(new FileInputStream(FileName));
 			System.out.println(ois.readObject());
-		} catch (Exception e) {
-			// TODO: handle exception
+
+			while (true) {
+				Empleado e = (Empleado) ois.readObject();
+				System.out.println(e);
+
+			}
+		} catch (EOFException eof) {
+			// Hemos llegado al final del archivo: es normal, salimos del bucle
+		} catch (FileNotFoundException fnfe) {
+			System.out.println("El archivo no existe.");
+		} catch (IOException | ClassNotFoundException e) {
+			System.out.println("Error leyendo el archivo: " + e.getMessage());
+		} finally {
+			if (ois != null) {
+				try {
+					ois.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 
 	private static void SearchEmployee() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void CreateEmployee() {
@@ -93,31 +111,21 @@ public class EJEMPLO27 {
 		System.out.print("sueldo: ");
 		Double sueldo = input.nextDouble();
 		Empleado employee = new Empleado(dni, nombre, sueldo);
-		
+
 		try {
-			oos = new ObjectOutputStream(new FileOutputStream(FileName)) ;
+			oos = new ObjectOutputStream(new FileOutputStream(FileName, true));
 			oos.writeObject(employee);
 			System.out.println("Objeto creado");
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		finally {
-			if (ois != null) {
-				try {
-					
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
-			}
-		}
-		
+
 	}
 
 	public static void menu() {
-		System.out.println("===MENÚ=== \n1. Dar alta empleados\n2. Buscar empleado por DNI\n3. Listar empleados\n4. Borrar empleado\n5. Salir\n================");
-		
+		System.out.println(
+				"===MENÚ=== \n1. Dar alta empleados\n2. Buscar empleado por DNI\n3. Listar empleados\n4. Borrar empleado\n5. Salir\n================");
+
 	}
-	
 
 }
