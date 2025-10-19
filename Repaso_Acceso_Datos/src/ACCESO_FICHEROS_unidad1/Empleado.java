@@ -12,6 +12,9 @@ public Empleado(String dni, String nombre, double sueldo) {
 	this.nombre = nombre;
 	this.sueldo = sueldo;
 }
+public Empleado() {
+	// TODO Auto-generated constructor stub
+}
 public String getDni() {
 	return dni;
 }

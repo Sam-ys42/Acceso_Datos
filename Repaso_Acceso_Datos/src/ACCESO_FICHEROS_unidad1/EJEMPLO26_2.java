@@ -19,7 +19,7 @@ Scanner input = new Scanner(System.in);
 			empleado = (Empleado) ois.readObject();
 			System.out.println("Empleado leído correctamente en el archivo .bin");
 			
-			System.out.println("DAtos del empleado: "+ empleado.toString());
+			System.out.println("Datos del empleado: "+ empleado.toString());
 			
 		} catch (Exception e) {
 		
