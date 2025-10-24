@@ -4,65 +4,75 @@ import java.io.RandomAccessFile;
 
 public class EJERCICIO32 {
 
+	public static void escribirProducto(RandomAccessFile archivo, int c, String n, double p, int s) {
 
+		// Nombre de producto tiene que ocupar 20 caracteres
+		if (n.length() < 20) {
+			while (n.length() < 20) {
+				n += " ";
+			}
+		}
 
-	    static final int TAM_NOMBRE = 20; // 20 caracteres máximo
-	    static final int TAM_REGISTRO = 4 + (2 * TAM_NOMBRE) + 8 + 4; // int + nombre(20char*2) + double + int = 56 bytes
+		// Escribir los datos en el archivo binario
+		try {
+			archivo.writeInt(c);
+			archivo.writeBytes(n);
+			// archivo.writeChars(n);
+			// archivo.writeUTF(n);
+			archivo.writeDouble(p);
+			archivo.writeInt(s);
 
-	    public static void main(String[] args) {
-	        String fichero = "productos.dat";
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 
-	        // Crear tres productos
-	        Producto p1 = new Producto(1, "Leche", 1.50, 100);
-	        Producto p2 = new Producto(2, "Pan", 8.75, 200);
-	        Producto p3 = new Producto(3, "Zumo", 15.30, 50);
+	public static void leerProducto(RandomAccessFile archivo, int indice) {
 
-	        try (RandomAccessFile raf = new RandomAccessFile(fichero, "rw")) {
-	            // Escribir los tres productos en el fichero
-	            escribirProducto(raf, p1);
-	            escribirProducto(raf, p2);
-	            escribirProducto(raf, p3);
+		try {
 
-	            // Leer el producto 2 (posición 1)
-	            int numRegistro = 1; // Producto número 2
-	            raf.seek(numRegistro * TAM_REGISTRO); // desplazamiento al segundo registro
+			// Mover el punturo del archivo a la posicion correspondiente del registro
+			archivo.seek(indice * 36);
+			// Leer codigo
+			int codigo = archivo.readInt();
+			// Leer el nombre
+			byte[] nombreBytes = new byte[20];
+			archivo.read(nombreBytes);
+			String nombre = new String(nombreBytes);
+			nombre.trim();
+			// Leer el precio
+			double precio = archivo.readDouble();
+			// Leer la cantidad en stock
+			int cantidad = archivo.readInt();
+			// Mostrar los datos leidos
+			System.out.println("Producto: " + codigo);
+			System.out.println("Nombre: " + nombre);
+			System.out.println("Precio: " + precio);
+			System.out.println("Cantidad en stock: " + cantidad);
 
-	            Producto p = LeerProducto(raf);
-	            System.out.println("Producto: " + p.getCodigo() +
-	                    " Nombre: " + p.getNombre().trim() +
-	                    " Precio: " + p.getPrecio() +
-	                    " Cantidad en stock: " + p.getCantidad());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	    }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 
-	    // Método para escribir un producto en el fichero binario
-	    public static void escribirProducto(RandomAccessFile raf, Producto p) throws IOException {
-	        raf.writeInt(p.getCodigo());
+		try {
 
-	        StringBuffer buffer = new StringBuffer(p.getNombre());
-	        buffer.setLength(TAM_NOMBRE); // ajusta longitud a 20 caracteres
-	        raf.writeChars(buffer.toString());
+			RandomAccessFile archivo = new RandomAccessFile("productos.dat", "rw");
 
-	        raf.writeDouble(p.getPrecio());
-	        raf.writeInt(p.getCantidad());
-	    }
+			// Escribimos 3 productos
+			escribirProducto(archivo, 1, "Leche", 1.50, 100);
+			escribirProducto(archivo, 2, "Pan", 8.75, 200);
+			escribirProducto(archivo, 3, "Zumo", 15.30, 50);
 
-	    // Método para leer un producto desde la posición actual del fichero
-	    public static Producto LeerProducto(RandomAccessFile raf) throws IOException {
-	        int codigo = raf.readInt();
+			// Escribir los datos en archivo binario
+			leerProducto(archivo, 1);
 
-	        char[] nombreChars = new char[TAM_NOMBRE];
-	        for (int i = 0; i < TAM_NOMBRE; i++) {
-	            nombreChars[i] = raf.readChar();
-	        }
-	        String nombre = new String(nombreChars);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 
-	        double precio = raf.readDouble();
-	        int cantidad = raf.readInt();
-
-	        return new Producto(codigo, nombre, precio, cantidad);
-	    }
+	}
 }
