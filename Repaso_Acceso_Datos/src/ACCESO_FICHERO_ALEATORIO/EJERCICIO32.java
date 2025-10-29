@@ -23,7 +23,7 @@ public class EJERCICIO32 {
 			archivo.writeInt(s);
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			// TODO: handle exception 
 		}
 	}
 
