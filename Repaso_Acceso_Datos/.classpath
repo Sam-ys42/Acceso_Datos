@@ -6,5 +6,20 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/codemodel.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/dtd-parser.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/FastInfoset.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/istack-commons-runtime.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/istack-commons-tools.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/javax.activation-api.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/jaxb-api.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/jaxb-jxc.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/jaxb-runtime.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/jaxb-xjc.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/relaxng-datatype.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/rngom.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/stax-ex.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/txw2.jar"/>
+	<classpathentry kind="lib" path="/home/diurno/Escritorio/xsom.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
