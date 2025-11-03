@@ -7,15 +7,20 @@ public class Libro {
 	private String titulo;
 	private String autor;
 	private String editorial;
-	private String isbn;
+	private int isbn;
 	
 	
-	public Libro(String titulo, String autor, String editorial, String isbn) {
+	public Libro(String titulo, String autor, String editorial, int isbn) {
 		super();
 		this.titulo = titulo;
 		this.autor = autor;
 		this.editorial = editorial;
 		this.isbn = isbn;
+	}
+
+
+	public Libro() {
+		// TODO Auto-generated constructor stub
 	}
 
 
@@ -49,13 +54,13 @@ public class Libro {
 	}
 
 
-	public String getIsbn() {
+	public int getIsbn() {
 		return isbn;
 	}
 
 
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
+	public void setIsbn(int i) {
+		this.isbn = i;
 	}
 
 
