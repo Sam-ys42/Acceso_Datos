@@ -12,6 +12,7 @@ Scanner input = new Scanner(System.in);
 		
 		Empleado empleado ;
 		
+		
 		String nombreArchivo = "empleado.bin";
 		ObjectInputStream ois = null;
 		try {
