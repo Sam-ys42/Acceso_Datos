@@ -1,5 +1,6 @@
-package ejercicio42;
+package ejercicio42y43;
 
+import java.io.File;
 import java.util.Scanner;
 
 import javax.xml.bind.JAXBContext;
@@ -62,6 +63,8 @@ boolean salir = false;
 			
 			// Convertir objeto a XML y mostrar en consola
 			marshaller.marshal(miLibreria, System.out);
+			File ficheroXML = new File("LibreriaAAAA.xml");
+			marshaller.marshal(miLibreria, ficheroXML);
 			
 			} catch (JAXBException e) {
 			e.printStackTrace();

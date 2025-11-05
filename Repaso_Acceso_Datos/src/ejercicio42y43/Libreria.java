@@ -1,4 +1,4 @@
-package ejercicio42;
+package ejercicio42y43;
 
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlElement; 

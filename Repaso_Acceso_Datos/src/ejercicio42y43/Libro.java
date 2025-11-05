@@ -1,4 +1,4 @@
-package ejercicio42;
+package ejercicio42y43;
 
 import javax.xml.bind.annotation.XmlType;
 
@@ -66,7 +66,7 @@ public class Libro {
 
 	@Override
 	public String toString() {
-		return "Libro [titulo=" + titulo + ", autor=" + autor + ", editorial=" + editorial + ", isbn=" + isbn + "]";
+		return "Titulo:" + titulo + ", Autor:" + autor + ", Editorial:" + editorial + ", ISBN: " + isbn + "]";
 	}
 	
 	
