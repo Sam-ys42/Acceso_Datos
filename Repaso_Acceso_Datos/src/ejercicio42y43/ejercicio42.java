@@ -58,6 +58,7 @@ boolean salir = false;
 			JAXBContext jaxbContext = JAXBContext.newInstance(Libreria.class);
 			Marshaller marshaller = jaxbContext.createMarshaller();
 			
+			
 			// Configuración opcional para formato legible
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			

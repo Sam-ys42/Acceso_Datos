@@ -6,6 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/milibraryJSON"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mylibrery"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/home/diurno/Escritorio/codemodel.jar"/>
 	<classpathentry kind="lib" path="/home/diurno/Escritorio/dtd-parser.jar"/>
