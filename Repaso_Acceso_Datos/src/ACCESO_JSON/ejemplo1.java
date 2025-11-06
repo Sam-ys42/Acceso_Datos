@@ -13,7 +13,7 @@ public class ejemplo1 {
 		// TODO Auto-generated method stub
 ObjectMapper mapper = new ObjectMapper();
 //leer una cadena json
-String jsonInput = "{\"id\":1,\"nombre\":\"Robin\",\"apellido\":\"Wilson\"}";
+/*String jsonInput = "{\"id\":1,\"nombre\":\"Robin\",\"apellido\":\"Wilson\"}";
 Libreria a = new Libreria();
 try {
 	a = mapper.readValue(jsonInput, Libreria.class);
@@ -22,7 +22,7 @@ try {
 	// TODO: handle exception
 	e.printStackTrace();
 	
-}
+}*/
 
 System.out.println("Leer y parsed a animados desde JSON: ");
 Libro b = new Libro("hola", "ADIOS", "SI", 1234);
