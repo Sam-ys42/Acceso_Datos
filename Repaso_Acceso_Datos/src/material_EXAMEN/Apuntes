@@ -1,0 +1,137 @@
+- ***_Ficheros XML_***
+		->con DOM (uso de memoria ordenador, hace arbol nodos)
+		
+		_____________DE_FICHERO_A_DOM________________________________________
+				//1 crea factoria
+			DocumentBuilderFactory factoria = DocumentBuilderFactory.newInstance();
+				
+				//2 crea DocumentBuilder con la factoria
+			DocumentBuilder db = factoria.newDocumentBuilder(); 
+				
+				//3 Parsea documento y arbol de nodos en memoria(editable)
+			Document doc = db.parse("personas.xml");  // archivo xml CON COSAS
+			 ó
+			Document doc =db.newDocument(); // árbol vacío
+			doc.setXmlVersion("1.0"); 		// version
+			
+			
+		____________DE_DOM_A_FICHERO_________________________________________
+				TENEMOS NUESTRO ÁRBOL "doc"
+				//1 CREAR FUENTE
+			DOMSource fuente = new DOMSource(doc);
+			
+				//2 crear destino
+			StreamResult destino = new StreamResult(new File(FicheroXML.xml));
+			
+				//3 crear transformador y meter la fuente en el destino
+			Transformer t = TransformerFactory.newInstance().newTransformer();
+			t.transform(fuente, destino);
+			
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+			
+		->con JAXB (convierte a xml por medio de objetos)
+		_____________DE_OBJETO_A_XML___Marshal____________________________
+				//1 crear contexto
+			JAXBContext jaxbContext = JAXBContext.newInstance(Clase.class); 
+			Marshaller marshaller = jaxbContext.createMarshaller();
+			
+				// Configuración opcional para formato legible 
+			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE); 
+ 				
+ 				//2 Convertir objeto a XML y meter en fichero xml 
+ 			marshaller.marshal(persona1, new File(fichero.xml)); 
+ 			marshaller.marshal(persona1, System.out); 
+				
+				
+		____________DE_XML_A_OBJETO____Unmarshal__________________________
+				//1 Instanciar un contexto de la clase JAXBContext con la clase RootElement 
+			JAXBContext contexto = JAXBContext.newInstance(Clase.class); 
+			
+				//2 Crear un unmarshaller  que convierte el XML en JavaBeans. 
+			Unmarshaller um = contexto.createUnmarshaller(); 
+			
+				//Realizar la deserialización  llamando al método unmarshal del marshaller. 
+			Clase miClase = (Clase) um.unmarshal(new File("coleccion.xml"));
+
+
+			// IMPORTANTE: DEBE HABER UN MÉTODO PARA MOSTRAR EL OBJETO
+			SI TIENE NUCHOAS OBJETOS DENTRO
+
+			Clase.mostrarClase();
+			
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+
+
+- ***_Ficheros JSON_***
+		->Jackson 
+		
+		____________DE_JSON_A_OBJETO____Serializar__________________________
+					//1 Crear un ObjectMapper 
+			ObjectMapper objectMapper = new ObjectMapper(); 
+			
+					//2 Leer el archivo JSON y convertirlo a un objeto 
+			Persona p = objectMapper.readValue(new File("persona.json"), Persona.class);
+			// A PARTIR DE AQUI SE USAN MÉTODOS DEL OBJETO
+			
+			
+			
+			
+			
+		____________DE_OBJETO_A_JSON____Deserializar__________________________
+					// crear objeto
+			Persona p=new Persona("33445566","Antonio",23); 
+			
+ 					//crear mapper
+ 			ObjectMapper mapeador = new ObjectMapper(); 
+ 			
+ 			mapeador.enable(SerializationFeature.INDENT_OUTPUT); 
+     				// escribir objeto en el json
+ 			mapeador.writeValue(new File("personaSalida.json"), p);
+		
+		
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+->Jackson puede LEER Y EDITAR XML Y GUARDAR INFORMACIÓN EN JSON
+	       	 //1 Crear el XmlMapper para leer el fichero XML 
+        XmlMapper xmlMapper = new XmlMapper(); 
+        
+			 //2 Leer el XML del archivo 
+        Personas miListaDePersonas = xmlMapper.readValue(new File("Personas.xml"), Personas.class); 
+			
+			//3 si eso añadir cosas
+		miListaDePersonas.anadir(new Persona("nombre", "apellido", 5));
+		
+			//4 Crear el ObjectMapper para generar el JSON 
+        ObjectMapper mapeador = new ObjectMapper(); 	
+			
+		    //5 Convertir el objeto Concesionario a JSON 
+         String stringPersonas = mapeador.writerWithDefaultPrettyPrinter().writeValueAsString(miListaDePersonas); 
+		
+			//6 escribir el json en un fichero
+		mapeador.writeValue(new File("concesionario.json"), concesionario); 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
