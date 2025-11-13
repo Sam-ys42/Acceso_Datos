@@ -111,7 +111,7 @@ public class contenido {
 				
 				
 				/*  ^ si son más de 1 objeto en el json, SE DEBE CREAR 1 CLASE DE OBJETOSSSS, Y ESTA DEBE TENER UN ARRAY DENTROOO,
-				*    I   y MOSTRAR TODO EN UNS FUNCION A PARTE MOSTRARX() VOID 
+				*    I   y MOSTRAR TODO EN UNS FUNCION A PARTE MOSTRAR() VOID 
 				*/
 				
 				
