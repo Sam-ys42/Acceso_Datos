@@ -13,19 +13,15 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlRootElement
+
+@XmlRootElement(name="personas")
 public class Personas implements Serializable{
-	
-	@JsonProperty("personas")
-	@XmlElementWrapper(name="personas")
-	@XmlElement(name="persona")
-	ArrayList<Persona> personas = new ArrayList<>(); 
+	private ArrayList<Persona> personas = new ArrayList<>(); 
 
 	public Personas() {
 		
 	}
-
-
+	@XmlElement(name="persona")
 	public ArrayList<Persona> getPersonas() {
 		return personas;
 	}

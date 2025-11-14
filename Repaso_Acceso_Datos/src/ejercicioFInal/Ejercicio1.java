@@ -13,8 +13,8 @@ import javax.xml.bind.Unmarshaller;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ACCESO_FICHEROS_unidad1.Empleado;
-import ACCESO_FICHEROS_unidad1.MyObjectOutputStream;
+
+import ejercicioFInal.MyObjectOutputStream;
 
 public class Ejercicio1 {
 	private static Personas personas1 = new Personas();
@@ -28,31 +28,44 @@ public class Ejercicio1 {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ObjectMapper mimapper = new ObjectMapper();
-		mimapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		
 		// leer jso
 	String resultado;
 	// ejercicio 1 
-	//System.out.println(resultado = (leerJson(mimapper)) ?"Se ha leido el archivo json correctamente": "nada, error"); // como me diga ah
-	//System.out .println(resultado = (meterDatosArchivoBin(personas1, "personas1.obj")) ?"Se han guardados los datos binarios": "nada, error"); // APRENDIDO CON ROSA LA DE AWS
+	System.out.println(resultado = (leerJson()) ?"Se ha leido el archivo json correctamente": "nada, error"); // como me diga ah
+	System.out .println(resultado = (meterDatosArchivoBin(personas1, "personas1.obj")) ?"Se han guardados los datos binarios": "nada, error"); // APRENDIDO CON ROSA LA DE AWS
 		// -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 
 	// ejercicio 2
 	System.out.println(resultado = (leerXml()) ? "Se ha leido el archivo xml correctamente" : "nada, error");
+	//System.out.println(resultado = (meterDatosArchivoBin(personas2, "personas2,obj")) ?"Se han guardado los datos binarios": "nada, error"); // APRENDIDO CON ROSA LA DE AWS
+
+	//ejercicio 3
+	System.out.println(resultado = (leerArchivosBin("personas1.obj","personas2.obj")) ? "Se han leido los archivos binarios correctamente" : "nada, error");
 	System.out.println(resultado = (meterDatosArchivoBin(personas2, "personas2,obj")) ?"Se han guardado los datos binarios": "nada, error"); // APRENDIDO CON ROSA LA DE AWS
 
 	
+	}
+
+	private static boolean leerArchivosBin(String archivo1, String archivo2) {
+		// TODO Auto-generated method stub
+		boolean resultado = false;
+		
+		
+		return resultado;
 	}
 
 	private static boolean leerXml() {
 		// TODO Auto-generated method stub
 		boolean resultado = false;
 		try {
-			JAXBContext contexto = JAXBContext.newInstance(Persona.class);
+			JAXBContext contexto = JAXBContext.newInstance(Personas.class);
 			//2 Crear un unmarshaller  que convierte el XML en JavaBeans. 
 			Unmarshaller um = contexto.createUnmarshaller(); 
 			//Realizar la deserialización  llamando al método unmarshal del marshaller. 
 			personas2= (Personas) um.unmarshal(new File("personas.xml"));
+			resultado = true;
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -97,8 +110,10 @@ public class Ejercicio1 {
 		return resultado;
 	}
 
-	private static boolean leerJson(ObjectMapper mimapper) {
+	private static boolean leerJson() {
 		boolean resultado = false;
+		ObjectMapper mimapper = new ObjectMapper();
+		mimapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		try {
 
 			personas1 = mimapper.readValue(new File("personas.json"), Personas.class);
