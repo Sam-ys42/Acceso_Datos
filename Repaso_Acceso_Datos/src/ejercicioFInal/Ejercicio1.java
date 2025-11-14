@@ -7,6 +7,9 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -30,18 +33,36 @@ public class Ejercicio1 {
 		// leer jso
 	String resultado;
 	// ejercicio 1 
-	System.out.println(resultado = (leerJson(mimapper)) ?"Se ha leido el archivo json correctamente": "nada, error"); // como me diga ah
-	System.out.println(resultado = (meterDatosArchivoBin(personas1)) ?"Se ha leido el archivo json correctamente": "nada, error"); // APRENDIDO CON ROSA LA DE AWS
+	//System.out.println(resultado = (leerJson(mimapper)) ?"Se ha leido el archivo json correctamente": "nada, error"); // como me diga ah
+	//System.out.println(resultado = (meterDatosArchivoBin(personas1, "personas1.obj")) ?"Se han guardados los datos binarios": "nada, error"); // APRENDIDO CON ROSA LA DE AWS
 		// -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 
 	// ejercicio 2
-	
+	System.out.println(resultado = (leerXml()) ? "Se ha leido el archivo xml correctamente" : "nada, error");
+	System.out.println(resultado = (meterDatosArchivoBin(personas2, "personas2,obj")) ?"Se han guardado los datos binarios": "nada, error"); // APRENDIDO CON ROSA LA DE AWS
+
 	
 	}
 
-	private static boolean meterDatosArchivoBin(Personas p) {
+	private static boolean leerXml() {
+		// TODO Auto-generated method stub
 		boolean resultado = false;
-		File ficheroBin = new File("personas1.obj");
+		try {
+			JAXBContext contexto = JAXBContext.newInstance(Persona.class);
+			//2 Crear un unmarshaller  que convierte el XML en JavaBeans. 
+			Unmarshaller um = contexto.createUnmarshaller(); 
+			//Realizar la deserialización  llamando al método unmarshal del marshaller. 
+			personas2= (Personas) um.unmarshal(new File("personas.xml"));
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return resultado;
+	}
+
+	private static boolean meterDatosArchivoBin(Personas p, String archivo) {
+		boolean resultado = false;
+		File ficheroBin = new File(archivo);
 		ObjectOutputStream oos = null;
 		for (Persona persona : p.getPersonas()) { // preguntar si esto es una lista """ACEPTABLE"""
 			String DNI = persona.getDni();

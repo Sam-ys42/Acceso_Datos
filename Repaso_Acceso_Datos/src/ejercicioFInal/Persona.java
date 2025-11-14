@@ -2,14 +2,20 @@ package ejercicioFInal;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({"dni", "nombre", "edad"})
+@XmlType(propOrder= {"dni","telefono","email"})
 public class Persona implements Serializable {
 	private String dni;
+	@XmlTransient
 	private String nombre;
+	@XmlTransient
 	private int edad;
 	@JsonIgnore
 	private int telefono;
