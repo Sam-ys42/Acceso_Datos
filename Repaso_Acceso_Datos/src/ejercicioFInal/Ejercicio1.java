@@ -34,7 +34,7 @@ public class Ejercicio1 {
 	String resultado;
 	// ejercicio 1 
 	//System.out.println(resultado = (leerJson(mimapper)) ?"Se ha leido el archivo json correctamente": "nada, error"); // como me diga ah
-	//System.out.println(resultado = (meterDatosArchivoBin(personas1, "personas1.obj")) ?"Se han guardados los datos binarios": "nada, error"); // APRENDIDO CON ROSA LA DE AWS
+	//System.out .println(resultado = (meterDatosArchivoBin(personas1, "personas1.obj")) ?"Se han guardados los datos binarios": "nada, error"); // APRENDIDO CON ROSA LA DE AWS
 		// -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 
 	// ejercicio 2
