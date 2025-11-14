@@ -1,11 +1,13 @@
 package ejercicioFInal;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({"dni", "nombre", "edad"})
-public class Persona {
+public class Persona implements Serializable {
 	private String dni;
 	private String nombre;
 	private int edad;
