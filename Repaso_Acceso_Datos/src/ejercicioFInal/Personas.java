@@ -35,7 +35,7 @@ public class Personas implements Serializable{
             System.out.println("No hay personas en la lista");
         } else {
             for (Persona p : personas) {
-                System.out.println(p);
+                System.out.println(p.toString());
             }
         }
     }

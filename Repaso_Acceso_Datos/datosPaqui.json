@@ -1,0 +1,28 @@
+{
+  "libros" : [ {
+    "titulo" : "aaa",
+    "autor" : "aaa",
+    "editorial" : "aaa",
+    "isbn" : "aaa"
+  }, {
+    "titulo" : "dfg",
+    "autor" : "dfg",
+    "editorial" : "dfg",
+    "isbn" : "222"
+  }, {
+    "titulo" : "444",
+    "autor" : "444",
+    "editorial" : "444",
+    "isbn" : "444"
+  }, {
+    "titulo" : "555",
+    "autor" : "555",
+    "editorial" : "555",
+    "isbn" : "555"
+  }, {
+    "titulo" : "67",
+    "autor" : "67",
+    "editorial" : "67",
+    "isbn" : "666"
+  } ]
+}

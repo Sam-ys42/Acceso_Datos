@@ -1,10 +1,58 @@
 package libreriaPaqui;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonPropertyOrder({"titulo", "autor", "editorial", "isbn"})
+
 public class Libro {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	private String titulo;
+	private String autor ;
+	private String editorial;
+	private String isbn;
+	public Libro(String titulo, String autor, String editorial, String isbn) {
+		super();
+		this.titulo = titulo;
+		this.autor = autor;
+		this.editorial = editorial;
+		this.isbn = isbn;
 	}
+	public Libro() {
+	
+	}
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public String getAutor() {
+		return autor;
+	}
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+	public String getEditorial() {
+		return editorial;
+	}
+	public void setEditorial(String editorial) {
+		this.editorial = editorial;
+	}
+	public String getIsbn() {
+		return isbn;
+	}
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+	@Override
+	public String toString() {
+		return "Libro [ isbn=" + isbn + ", autor=" + autor + ", editorial=" + editorial +"titulo=" + titulo+  "]";
+	}
+	
+	
+	
+	
 
 }
