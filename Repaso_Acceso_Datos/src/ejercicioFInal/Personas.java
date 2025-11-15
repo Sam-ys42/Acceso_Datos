@@ -40,7 +40,9 @@ public class Personas implements Serializable{
         }
     }
 
-
+	public void anadirPersona(Persona p) {
+		this.personas.add(p);
+	}
 
 
 }
