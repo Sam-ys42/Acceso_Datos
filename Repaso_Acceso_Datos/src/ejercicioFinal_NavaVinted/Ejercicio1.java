@@ -7,17 +7,24 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-public class Ej1_CSV_a_Object {
+public class Ejercicio1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		System.out.println(deCSVaObject("ropa.csv") ? "se ha leído el csv y se ha creado el objeto con éxito":  "nada");
+
+	}
+
+	private static boolean deCSVaObject(String archivo) {
+		// TODO Auto-generated method stub
+		boolean resultado = false;
 		Productos ListaP = new Productos();
 
 		try {
 			// Abrir fichero CSV
 			BufferedReader bf = new BufferedReader(
-					new FileReader("ropa.csv"));
+					new FileReader(archivo));
 
 			// Variable para lectura
 			String linea;
@@ -51,12 +58,13 @@ public class Ej1_CSV_a_Object {
 			oos.close();
 
 			System.out.println("Lista almacenada correctamente.");
+			resultado = true;
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		return resultado;
 	}
 
 }

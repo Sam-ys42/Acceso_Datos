@@ -6,15 +6,21 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.RandomAccessFile;
 
-public class Ej2_EscribirRandomAccess {
+public class Ejercicio2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		System.out.println(escribirRandomAccess("ropa.dat") ? "se ha escrito el fichero aleatorio con éxito" : "nada");
+
+	}
+
+	private static boolean escribirRandomAccess(String archivoAR) {
+		// TODO Auto-generated method stub
 		ObjectInputStream ois1;
 		try {
 			// Leer archivo y almacenar en un objeto
-			ois1 = new ObjectInputStream( new FileInputStream("ropa.dat"));
+			ois1 = new ObjectInputStream( new FileInputStream(archivoAR));
 			Productos lista = (Productos) ois1.readObject();
 			ois1.close();
 
@@ -43,7 +49,7 @@ public class Ej2_EscribirRandomAccess {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		return false;
 	}
 
 }

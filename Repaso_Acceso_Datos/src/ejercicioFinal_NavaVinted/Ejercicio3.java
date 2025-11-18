@@ -5,18 +5,25 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Scanner;
 
-public class Ej3_Leer_RandomAccess {
+public class Ejercicio3 {
 
 	public static Scanner teclado = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		System.out.println(leerRandomAccess("precio.dat") ? "Se ha leído el archivo correctamente" : "nada");
+
+	}
+
+	private static boolean leerRandomAccess(String archivoRA) {
+		// TODO Auto-generated method stub
+		boolean resultado = false;
 		System.out.println("Introduce el ID del producto: ");
 		int id = Integer.parseInt(teclado.nextLine());
 
 		try {
-			RandomAccessFile archivo = new RandomAccessFile("precio.dat", "rw");
+			RandomAccessFile archivo = new RandomAccessFile(archivoRA, "rw");
 
 			try {
 
@@ -51,7 +58,7 @@ public class Ej3_Leer_RandomAccess {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		return resultado;
 	}
 
 }

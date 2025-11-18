@@ -7,13 +7,20 @@ import java.io.ObjectInputStream;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-public class Ej5_Escribir_JSON {
+public class Ejercicio5 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		System.out.println(escribirJson("ropa.dat")? "json escrito correctamente" : "nada");
+
+	}
+
+	private static boolean escribirJson(String archivo) {
+		boolean resultado = false;
 		try {
+			// escribir json
 			ObjectInputStream ois1 = new ObjectInputStream(
-					new FileInputStream("C:\\Users\\itsca\\git\\AccesoDatos\\AccesoDatos\\ropa.dat"));
+					new FileInputStream(archivo));
 			Productos lista = (Productos) ois1.readObject();
 			ois1.close();
 
@@ -23,11 +30,12 @@ public class Ej5_Escribir_JSON {
 			ObjectMapper mapeador = new ObjectMapper();
 			mapeador.enable(SerializationFeature.INDENT_OUTPUT);
 
-			mapeador.writeValue(new File("C:\\Users\\itsca\\git\\AccesoDatos\\AccesoDatos\\ropa.json"), lista);
+			mapeador.writeValue(new File("ropa.json"), lista);
+			resultado = true;
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-
+		return resultado;
 	}
 
 }
