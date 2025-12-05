@@ -1,13 +1,8 @@
 {
   "libros" : [ {
-    "titulo" : "aaa",
-    "autor" : "aaa",
-    "editorial" : "aaa",
-    "isbn" : "aaa"
-  }, {
-    "titulo" : "dfg",
-    "autor" : "dfg",
-    "editorial" : "dfg",
+    "titulo" : "Adios",
+    "autor" : "juam",
+    "editorial" : "sm",
     "isbn" : "222"
   }, {
     "titulo" : "444",
@@ -24,5 +19,10 @@
     "autor" : "67",
     "editorial" : "67",
     "isbn" : "666"
+  }, {
+    "titulo" : "Hola",
+    "autor" : "Juan",
+    "editorial" : "sm",
+    "isbn" : "2345666"
   } ]
 }

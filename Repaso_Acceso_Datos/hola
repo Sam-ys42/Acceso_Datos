@@ -1,0 +1,28 @@
+private static boolean meterDatosArchivoCSV(Personas personas, String archivo) {
+		// TODO Auto-generated method stub
+		boolean resultado = false;
+		File ficheroTxt = new File(archivo);
+		BufferedWriter bw = null;
+		try {
+			bw = new BufferedWriter(new FileWriter(ficheroTxt));
+		
+		for (Persona persona : personas.getPersonas()) {
+			try  {
+				bw.write(persona.getNombre() + ";" + persona.getEmail());
+				System.out.println("persona escrita en el fichero");
+				bw.newLine();
+				
+				resultado = true;
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			
+		}
+		bw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultado;
+	}
