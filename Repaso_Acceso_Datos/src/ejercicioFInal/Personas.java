@@ -29,7 +29,7 @@ public class Personas implements Serializable{
 	public void setPersonas(ArrayList<Persona> listapersonas) {
 		this.personas = listapersonas;
 	}
-
+  
 	public void mostrarPersonas() {
         if (personas == null || personas.isEmpty()) {
             System.out.println("No hay personas en la lista");
