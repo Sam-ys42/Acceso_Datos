@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alumnos>
+    <alumno>
+        <nombre>Pedro Pascual</nombre>
+        <curso>2DAM</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>Laura Gomez</nombre>
+        <curso>1DAM</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>Carlos Ruiz</nombre>
+        <curso>2DAW</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>Ana Torres</nombre>
+        <curso>1DAW</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>Javier Morales</nombre>
+        <curso>2DAM</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>Sonia Martinez</nombre>
+        <curso>1DAM</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>2</nombre>
+        <curso>1DAW</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>juan</nombre>
+        <curso>2DAM</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>Jaime Garcia</nombre>
+        <curso>1DAM</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>María Luna</nombre>
+        <curso>2DAW</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>Carlos Gómez</nombre>
+        <curso>1DAW</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>Lorena Sánchez</nombre>
+        <curso>2DAM</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>Francisco Moreno</nombre>
+        <curso>2DAW</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>Ignacio Serrano</nombre>
+        <curso>1DAM</curso>
+        <telefono>0</telefono>
+    </alumno>
+    <alumno>
+        <nombre>Oscar Jimenez</nombre>
+        <curso>1DAW</curso>
+        <telefono>0</telefono>
+    </alumno>
+</alumnos>

@@ -16,8 +16,8 @@ public class Ej_27 {
 
 	
 	 private static final String URL = "jdbc:mysql://localhost:3306/alumnos";
-	    private static final String USER = "root";
-	    private static final String PASSWORD = "@Itowgameplay01"; 
+//	    private static final String USER = "root";
+//	    private static final String PASSWORD = "@Itowgameplay01"; 
 
 	    
 	    public static Connection conectar() {
@@ -25,7 +25,7 @@ public class Ej_27 {
 	    	try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				//establecer la conexion
-				conexion = DriverManager.getConnection(URL,USER, PASSWORD);
+				conexion = DriverManager.getConnection(URL);
 				System.out.println("conexión exitosa");
 				
 				

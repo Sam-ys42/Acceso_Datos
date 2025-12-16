@@ -20,6 +20,13 @@ public class Alumno implements Serializable {
 	public Alumno() {
 		
 	}
+	public Alumno(String nombre2, String curso2) {
+		// TODO Auto-generated constructor stub
+		super();
+		this.nombre = nombre;
+		this.curso = curso;
+	}
+	
 	@XmlElement
 	public String getNombre() {
 		return nombre;

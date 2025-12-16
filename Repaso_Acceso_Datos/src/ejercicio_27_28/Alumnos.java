@@ -23,7 +23,7 @@ public class Alumnos implements Serializable {
 	public void setAlumnos(ArrayList<Alumno> alumnos) {
 		this.alumnos = alumnos;
 	}
-	public void anadirPersona(Alumno a) {
+	public void anadirAlumno(Alumno a) {
 		this.alumnos.add(a);
 	}
 
