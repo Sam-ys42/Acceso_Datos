@@ -55,7 +55,7 @@ public class Ej_27 {
 			// aqui los añadimos a la tabla
 			String sql = "INSERT INTO alumno (nombre, curso) "
                     + "VALUES ( ?, ?)";
-System.out.println("hola?"+alumnos.getAlumnos().size());
+//System.out.println("hola?"+alumnos.getAlumnos().size());
 Connection conexion = conectar();
 			for (Alumno alumno : alumnos.getAlumnos()) {
 				
