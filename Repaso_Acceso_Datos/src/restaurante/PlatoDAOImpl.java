@@ -56,7 +56,7 @@ public static String sql = null;
 		try (Connection con = ConexionBD.getConnection(bbdd)){
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
-			ps.executeUpdate();
+			ps.executeUpdate();  
 				
 		} catch (Exception e) {
 			// TODO: handle exception
