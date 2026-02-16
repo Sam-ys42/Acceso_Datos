@@ -25,6 +25,7 @@ public class Persona {
 		this.nombre = nombre;
 		this.facturas = facturas;
 	}
+	
 	public Persona() {
 		super();
 	}

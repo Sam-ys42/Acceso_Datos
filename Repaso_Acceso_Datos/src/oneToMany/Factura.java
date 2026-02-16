@@ -34,6 +34,15 @@ public class Factura {
 		this.importe = importe;
 		this.persona = persona;
 	}
+	
+	public Factura(Date fecha, String concepto, Double importe, Persona persona) {
+		super();
+		this.fecha = fecha;
+		this.concepto = concepto;
+		this.importe = importe;
+		this.persona = persona;
+	}
+	
 	public int getId() {
 		return id;
 	}
