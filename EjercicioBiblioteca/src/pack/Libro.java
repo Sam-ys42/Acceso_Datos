@@ -1,12 +1,13 @@
 package pack;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity 
 @Table(name = "libro") 
 public class Libro {
-	
+	@Id
 	private String isbn;
 	private int numEjemplar;
 	private String titulo;
