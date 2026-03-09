@@ -93,9 +93,8 @@ public class Prestamo implements Serializable {
 				}
     			}
     	} 
-    // Operación 4: consulta estática – total de préstamos 
     public static void mostrarTotalPrestamos(EntityManager em) { 
-    	Long total = (Long) em.createNamedQuery("Prestamo.totalPrestamos") .getSingleResult();
+    	Long total = (Long) em.createNamedQuery("Prestamo.total") .getSingleResult();
     	System.out.println("Total de préstamos realizados: " + total); 
     	}
 }

@@ -1,7 +1,10 @@
 package pack;
 
-import javax.persistence.*;
 import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class Main {
 
@@ -16,9 +19,9 @@ public class Main {
         do {
             System.out.println("\n--- MENÚ  ---");
             System.out.println("1. Crear 3 libros, 3 socios y 3 préstamos");
-            System.out.println("2. Actualizar teléfono de un socio (sin consultas)");
-            System.out.println("3. Socios que han sacado un libro (consulta dinámica)");
-            System.out.println("4. Total de préstamos (consulta estática)");
+            System.out.println("2. Actualizar teléfono de un socio ");
+            System.out.println("3. Socios que han sacado un libro ");
+            System.out.println("4. Total de préstamos ");
             System.out.println("0. Salir");
             System.out.print("Opción: ");
             opcion = sc.nextInt();
@@ -26,7 +29,6 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    // Operación 1: sin consultas
                     em.getTransaction().begin();
 
                     Libro l1 = new Libro("111", 3, "Dune", "Herbert");
@@ -49,7 +51,6 @@ public class Main {
                     break;
 
                 case 2:
-                    // Operación 2: sin consultas
                     System.out.print("DNI del socio: ");
                     String dni = sc.nextLine();
                     System.out.print("Nuevo teléfono: ");
@@ -58,14 +59,12 @@ public class Main {
                     break;
 
                 case 3:
-                    // Operación 3: con consulta dinámica
                     System.out.print("ISBN del libro: ");
                     String isbn = sc.nextLine();
                     Prestamo.mostrarSociosQueHanSacadoLibro(em, isbn);
                     break;
 
                 case 4:
-                    // Operación 4: con consulta estática
                     Prestamo.mostrarTotalPrestamos(em);
                     break;
             }
